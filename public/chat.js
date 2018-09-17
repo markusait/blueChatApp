@@ -1,5 +1,5 @@
 // Make connection
-var socket = io.connect('http://localhost:4000');
+var socket = io.connect('http://localhost:3007');
 var timeout
 // Query DOM
 var message = document.getElementById('message'),
@@ -27,6 +27,15 @@ message.addEventListener('keyup',function(){
  timeout = setTimeout(timeoutFunction, 2000)
 })
 
+message.addEventListener('keydown',function(e){
+ if(e.keyCode === 13) {
+   socket.emit('chat', {
+     message: message.value,
+     handle: handle.value
+   })
+   message.value = ""
+ }
+})
 
 // Listen for events
 socket.on('chat', function(data){
