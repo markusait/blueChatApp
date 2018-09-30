@@ -36,8 +36,8 @@ h2{
     margin: 0 20px;
 }
 
-#output strong{
-    color: #575ed8;
+.sender strong{
+    background-color: var(--main-bg-color);
 }
 
 label{

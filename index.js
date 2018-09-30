@@ -12,7 +12,7 @@ const server = app.listen(port, function(){
 app.use(express.static('public'));
 
 // Socket setup & pass server
-var io = socket(server);
+let io = socket(server, { origins: '*:*'});
 io.on('connection', (socket) => {
 
     console.log('made socket connection', socket.id);

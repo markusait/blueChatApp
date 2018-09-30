@@ -36,11 +36,14 @@ message.addEventListener('keydown',function(e){
    message.value = ""
  }
 })
-
+let randomColor = "#"+((1<<24)*Math.random()|0).toString(16);
 // Listen for events
 socket.on('chat', function(data){
     feedback.innerHTML = '';
-    output.innerHTML += '<p><strong>' + data.handle + ': </strong>' + data.message + '</p>';
+    output.innerHTML += '<p class="sender" style="color: blue"><strong>' + data.handle + ': </strong>' + data.message + '</p>';
+    let chat = document.getElementById('output')
+    let randomColor = "#"+((1<<24)*Math.random()|0).toString(16);
+    chat.children[chat.children.length -1].style.color = randomColor
 });
 
 socket.on('typing', function(data){
@@ -50,3 +53,6 @@ socket.on('typing', function(data){
       feedback.innerHTML = ''
     }
 });
+
+
+var x = document.getElementById('sender')
