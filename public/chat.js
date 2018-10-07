@@ -1,5 +1,5 @@
 // Make connection
-var socket = io.connect('http://localhost:3007');
+var socket = io.connect('http://chatapp.digitpay.de/:3007');
 var timeout
 // Query DOM
 var message = document.getElementById('message'),
